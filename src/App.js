@@ -427,7 +427,7 @@ export default function App() {
         {screen === "landing" && (
           <div className="landing">
             <nav className="nav">
-              <div className="logo">Ledger<span>ly</span></div>
+              <div className="logo">Invoicr<span>ly</span></div>
               <button className="nav-cta" onClick={() => setScreen("paywall")}>Start Free Trial</button>
             </nav>
 
@@ -520,7 +520,7 @@ export default function App() {
         {screen === "app" && (
           <div className="app-shell">
             <div className="app-header">
-              <div className="logo">Ledger<span style={{color:COLORS.amber}}>ly</span></div>
+              <div className="logo">Invoicr<span style={{color:COLORS.amber}}>ly</span></div>
               <div style={{display:'flex', gap:16, alignItems:'center'}}>
                 <span style={{fontSize:12, color:'#6a6050'}}>7 days left in trial</span>
                 <button className="nav-cta" onClick={() => setScreen("paywall")}>Upgrade $19/mo</button>
