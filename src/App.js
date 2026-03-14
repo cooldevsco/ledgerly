@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 const COLORS = {
   ink: "#0f0e0c",
