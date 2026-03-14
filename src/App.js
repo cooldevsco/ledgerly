@@ -507,7 +507,7 @@ export default function App() {
                 <li>Document history & status tracking</li>
                 <li>Your logo & branding on every doc</li>
               </ul>
-              <button className="subscribe-btn" onClick={() => window.location.href - "https://buy.stripe.com/bJecN601O2NO8PocHA2Ji00"}>
+              <button className="subscribe-btn" onClick={() => window.location.href = "https://buy.stripe.com/bJecN601O2NO8PocHA2Ji00"}>
                 Start Free Trial — No Card Needed
               </button>
               <div className="paywall-note">🔒 SECURED WITH STRIPE · CANCEL ANYTIME</div>
