@@ -428,7 +428,7 @@ export default function App() {
           <div className="landing">
             <nav className="nav">
               <div className="logo">Ledger<span>ly</span></div>
-              <button className="nav-cta" onClick={() => setScreen("paywall")}>Start Free Trial</button>
+              <button className="nav-cta" onClick={() => setScreen("paywall")} </button>
             </nav>
 
             <div className="hero">
