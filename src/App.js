@@ -508,7 +508,7 @@ export default function App() {
                 <li>Your logo & branding on every doc</li>
               </ul>
               <button className="subscribe-btn" onClick={() => window.location.href = "https://buy.stripe.com/bJecN601O2NO8PocHA2Ji00"}>
-                Start Free Trial — No Card Needed
+                Start Free Trial — 7-Day Free Trial - Cancel Anytime
               </button>
               <div className="paywall-note">🔒 SECURED WITH STRIPE · CANCEL ANYTIME</div>
               <span className="back-link" onClick={() => setScreen("landing")}>← Back to homepage</span>
