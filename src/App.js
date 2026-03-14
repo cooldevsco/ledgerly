@@ -737,7 +737,7 @@ export default function App() {
                           </div>
                         )}
 
-                        <div className="inv-footer">Generated with Ledgerly · ledgerly.app</div>
+                        <div className="inv-footer">Generated with Invoicr · Invoicr.app</div>
                       </div>
                     </div>
                   </div>
