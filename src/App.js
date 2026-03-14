@@ -520,8 +520,7 @@ export default function App() {
         {screen === "app" && (
           <div className="app-shell">
             <div className="app-header">
-              <div className="logo">Invoicr<span style={{color:COLORS.amber}}>ly</span></div>
-              <div style={{display:'flex', gap:16, alignItems:'center'}}>
+             <div className="logo">Invoicr</div>              <div style={{display:'flex', gap:16, alignItems:'center'}}>
                 <span style={{fontSize:12, color:'#6a6050'}}>7 days left in trial</span>
                 <button className="nav-cta" onClick={() => setScreen("paywall")}>Upgrade $19/mo</button>
               </div>
