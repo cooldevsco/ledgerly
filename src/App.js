@@ -427,7 +427,7 @@ export default function App() {
         {screen === "landing" && (
           <div className="landing">
             <nav className="nav">
-              <div className="logo">Invoicr<span>ly</span></div>
+              <div className="logo">Invoicr</div>
               <button className="nav-cta" onClick={() => setScreen("paywall")}>Start Free Trial</button>
             </nav>
 
