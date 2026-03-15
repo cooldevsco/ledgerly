@@ -335,6 +335,26 @@ const style = `
     .app-tabs { padding: 0 24px; overflow-x: auto; }
     .app-header { padding: 16px 24px; }
   }
+
+ @media print {
+    .app-header,
+    .app-tabs,
+    .form-panel,
+    .preview-header,
+    .inv-footer {
+      display: none !important;
+    }
+    .builder-grid {
+      display: block !important;
+    }
+    .preview-panel {
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .invoice-doc {
+      padding: 0 !important;
+    }
+  }
 `;
 
 const generateInvoiceNumber = () => {
