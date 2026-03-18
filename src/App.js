@@ -674,7 +674,7 @@ export default function App() {
                     <p style={{ fontSize: 13, color: "#7a7060", marginBottom: 16 }}>This color appears on your invoice badge, divider, and total amount.</p>
                     <div className="color-swatches">
                       {ACCENT_COLORS.map(c => (
-                        <divkey={c.value} className={"color-swatch" + (accentColor === c.value ? " selected" : "")} style={{ background: c.value }} onClickColor(c)} title={c.name} />
+                        <div key={c.value} className={"color-swatch" + (accentColor === c.value ? " selected" : "")} style={{ background: c.value }} onClick={() => setAccentColor(c.value)} title={c.name} />
                       ))}
                     </div>
                     <div style={{ marginTop: 16, fontSize: 12, color: "#7a7060" }}>Selected: {ACCENT_COLORS.find(c => c === accentColor)?.name}</div>
