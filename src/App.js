@@ -1,4 +1,5 @@
 /* eslint-disable */
+import React, { useState, useRef } from "react";
 
 const COLORS = {
   ink: "#0f0e0c",
