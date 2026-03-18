@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState, useRef } from "react";
+/* eslint-disable */
 
 const COLORS = {
   ink: "#0f0e0c",
