@@ -1,4 +1,4 @@
-/* eslint-disable */
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useRef } from "react";
 
 const COLORS = {
@@ -80,7 +80,7 @@ const style = `
 
   .app-shell { min-height: 100vh; background: #f5f0e8; }
   .app-header { background: #0f0e0c; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; }
-  .app-tabs { display: flex; gap: 4px; padding: 0 48px; background: #e8dfc8; border-bottom: 2px solid #d0c8b0; overflow-x: auto; }
+  .app-tabs { display: flex; gap: 4px; padding: 0 48px; background: #e8dfc8; border-bottom: 2px solid #d0c8b0; overflow-x: auto; overflow-y: hidden; }
   .tab { padding: 16px 24px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border: none; background: transparent; color: #7a7060; font-family: 'DM Mono', monospace; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.15s; white-space: nowrap; }
   .tab.active { color: #0f0e0c; border-bottom-color: #c8922a; font-weight: 500; }
   .tab:hover { color: #0f0e0c; }
@@ -222,7 +222,7 @@ const TEMPLATES = [
   { icon: "🏠", name: "Real Estate Services", tag: "Real Estate", desc: "Property management fees, commissions and related services." },
 ];
 
-const INITIAL_HISTORY = [
+const INITIAL_HISTORY = [ //
   { id: 1, type: "Invoice", client: "Maple & Co.", date: "Mar 10, 2026", amount: 3200, status: "paid" },
   { id: 2, type: "Proposal", client: "Bright Ideas Studio", date: "Mar 08, 2026", amount: 8500, status: "sent" },
   { id: 3, type: "Invoice", client: "TechBridge LLC", date: "Mar 05, 2026", amount: 1750, status: "paid" },
@@ -242,13 +242,13 @@ export default function App() {
   const [docType, setDocType] = useState("Invoice");
   const [invoiceNum] = useState(generateInvoiceNumber());
   const [currency, setCurrency] = useState(CURRENCIES[0]);
-  const [accentColor, setAccentColor] = useState(ACCENT_COLORS[0]);
+  const [accentColor, setAccentColor] = useState(ACCENT_COLORS[0].value);
   const [logoUrl, setLogoUrl] = useState(null);
   const [showEmailModal, setShowEmailModal] = useState(false);
   const [emailTo, setEmailTo] = useState("");
   const [emailNote, setEmailNote] = useState("");
   const [notification, setNotification] = useState(null);
-  const [history, setHistory] = useState(INITIAL_HISTORY);
+  const [history, setHistory] = useState([]);
   const [clients, setClients] = useState(INITIAL_CLIENTS);
   const logoInputRef = useRef(null);
 
@@ -674,7 +674,7 @@ export default function App() {
                     <p style={{ fontSize: 13, color: "#7a7060", marginBottom: 16 }}>This color appears on your invoice badge, divider, and total amount.</p>
                     <div className="color-swatches">
                       {ACCENT_COLORS.map(c => (
-                        <div key={c} className={"color-swatch" + (accentColor === c ? " selected" : "")} style={{ background: c }} onClick={() => setAccentColor(c)} title={c.name} />
+                        <divkey={c.value} className={"color-swatch" + (accentColor === c.value ? " selected" : "")} style={{ background: c.value }} onClickColor(c)} title={c.name} />
                       ))}
                     </div>
                     <div style={{ marginTop: 16, fontSize: 12, color: "#7a7060" }}>Selected: {ACCENT_COLORS.find(c => c === accentColor)?.name}</div>
