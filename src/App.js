@@ -248,7 +248,12 @@ export default function App() {
   const [emailTo, setEmailTo] = useState("");
   const [emailNote, setEmailNote] = useState("");
   const [notification, setNotification] = useState(null);
-  const [history, setHistory] = useState([]);
+ const [history, setHistory] = useState(() => {
+  try {
+    const saved = localStorage.getItem('invoicr_history');
+    return saved ? JSON.parse(saved) : [];
+  } catch { return []; }
+});
   const [clients, setClients] = useState(INITIAL_CLIENTS);
   const logoInputRef = useRef(null);
 
@@ -306,7 +311,30 @@ export default function App() {
     }
   };
 
-  const updateStatus = (id, newStatus) => setHistory(prev => prev.map(h => h.id === id ? { ...h, status: newStatus } : h));
+ const updateHistoryStatus = (id, status) => {
+  setHistory(prev => {
+    const updated = prev.map(h => h.id === id ? { ...h, status } : h);
+    localStorage.setItem('invoicr_history', JSON.stringify(updated));
+    return updated;
+  });
+};
+const saveToHistory = () => {
+  const newEntry = {
+    id: Date.now(),
+    type: docType,
+    client: client.name || "Unknown Client",
+    email: client.email || "",
+    date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+    amount: total,
+    status: "draft"
+  };
+  setHistory(prev => {
+    const updated = [newEntry, ...prev];
+    localStorage.setItem('invoicr_history', JSON.stringify(updated));
+    return updated;
+  });
+  toast("✓ Invoice saved to history!");
+};
 
   const exportCSV = () => {
     const headers = ["Type", "Client", "Date", "Amount", "Status"];
@@ -532,7 +560,8 @@ export default function App() {
                         <span className="preview-label">Live Preview</span>
                         <div className="preview-actions">
                           <button className="email-btn" onClick={() => setShowEmailModal(true)}>✉ Email</button>
-                          <button className="print-btn" onClick={() => window.print()}>↓ Export PDF</button>
+                         <button className="email-btn" onClick={saveToHistory}>💾 Save</button>
+<button className="print-btn" onClick={() => window.print()}>↓ Export PDF</button>
                         </div>
                       </div>
                       <div className="invoice-doc">
